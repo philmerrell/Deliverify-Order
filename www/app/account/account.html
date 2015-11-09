@@ -4,18 +4,20 @@
   </ion-title>
 </ion-navbar>
 <ion-content>
-  <div>
-    <img src="">
+  <div *ng-if="userService.getCurrentUser()">
+    <div class="user" padding>
+      <img src="{{currentUser.github.profileImageURL}}" style="width: 50px; border-radius: 50px;">
+      <h4>{{currentUser.github.displayName}} <small style="font-size: 0.8em; color: #8c8c8c;">via {{currentUser.provider}}</small></h4>
+    </div>
+    <ion-card>
+      <ion-card-content>
+      </ion-card-content>
+    </ion-card>
   </div>
-  <ion-card>
-    <ion-card-content>
-
-    </ion-card-content>
-  </ion-card>
-  <div padding>
-    <button primary full><icon social-facebook></icon> Facebook</button>
-    <button danger full><icon social-google></icon> Google</button>
-    <button secondary full><icon social-twitter></icon> Twitter</button>
-    <button dark full><icon social-github></icon> Github</button>
+  <div padding *ng-if="!userService.getCurrentUser()">
+    <!--<button primary full><icon social-facebook></icon> Facebook</button>-->
+    <!--<button danger full><icon social-google></icon> Google</button>-->
+    <!--<button secondary full><icon social-twitter></icon> Twitter</button>-->
+    <button (click)="authWithGithub()" dark full><icon social-github></icon> Github</button>
   </div>
 </ion-content>

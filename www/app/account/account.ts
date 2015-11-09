@@ -1,14 +1,28 @@
 import {Page} from 'ionic/ionic';
-import {Control, ControlGroup} from 'angular2/angular2';
+import {UserService} from "../services/UserService";
+import {AuthService} from "../services/AuthService";
 
 @Page({
   templateUrl:'app/account/account.html',
 })
+
 export class Account {
-  constructor(){
-    this.settings = new ControlGroup({
-      enableFriends: new Control(true)
+  userService: UserService;
+  authService: AuthService;
+  currentUser: any;
+
+  constructor(authService: AuthService, userService: UserService) {
+    this.userService = userService;
+    this.authService = authService;
+    this.currentUser = this.userService.getCurrentUser();
+    this.userService.userEmitter.subscribe((user) => {
+      this.currentUser = user;
     });
   }
+
+  authWithGithub() {
+    this.authService.authWithGithub()
+  }
+
 }
 

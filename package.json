@@ -14,6 +14,7 @@
     "webpack": "1.10.5"
   },
   "dependencies": {
+    "firebase-tools": "^2.0.2",
     "ionic-framework": "^2.0.0-alpha.30",
     "lodash": "^3.10.1",
     "rx": "^4.0.6"
