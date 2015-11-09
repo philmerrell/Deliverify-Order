@@ -1,0 +1,20 @@
+<ion-pane>
+    <ion-toolbar>
+        <ion-nav-items primary>
+        </ion-nav-items>
+        <ion-title>
+            Edit Ingredients
+        </ion-title>
+        <ion-nav-items secondary>
+            <button (click)="close()">Done</button>
+        </ion-nav-items>
+    </ion-toolbar>
+    <ion-content>
+        <!--<select *ng-for="#ingredient of ingredients" *ng-if="ingredient.Type === 'Select'">-->
+            <!--<option *ng-for="#option of ingredient.Options">{{option}}</option>-->
+        <!--</select>-->
+        <ion-list>
+            <ion-checkbox *ng-for="#ingredient of ingredients" (click)="toggleIngredient(ingredient)" checked="{{ingredient.Ordered}}">{{ingredient.Name}}</ion-checkbox>
+        </ion-list>
+    </ion-content>
+</ion-pane>
