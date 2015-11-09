@@ -1,0 +1,26 @@
+<ion-navbar *navbar primary>
+  <ion-title>
+    Cart - {{'$'+cartService.getOrderTotal()}}
+  </ion-title>
+  <ion-nav-items secondary>
+    <button *ng-if="cartService.getOrderTotal() > 0">Checkout</button>
+  </ion-nav-items>
+</ion-navbar>
+<ion-content>
+  <ion-card *ng-if="!cart.length">
+    <ion-card-content>
+      <h1>It's lonely in here.</h1>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item *ng-for="#item of cart">
+      <!--<ion-thumbnail item-left>-->
+        <!--<img [src]="item.Image" alt="">-->
+      <!--</ion-thumbnail>-->
+      <h2>{{item.Name}}</h2>
+      <h3>${{item.Price}}</h3>
+      <p><span *ng-for="#ingredient of item.Ingredients; #i = index"><span *ng-if="!ingredient.Ordered" class="strikethrough">{{ingredient.Name}}</span><span *ng-if="!ingredient.Ordered && i < item.Ingredients.length - 1">,</span> </span></p>
+      <button (click)="remove(item)" clear danger item-right><icon trash></icon></button>
+    </ion-item>
+  </ion-list>
+</ion-content>

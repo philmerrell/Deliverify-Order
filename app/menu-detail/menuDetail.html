@@ -1,0 +1,28 @@
+<ion-navbar *navbar primary>
+    <ion-title>
+        {{item.Name}}
+    </ion-title>
+</ion-navbar>
+
+<ion-content>
+        <img [src]="item.Image" width="100%">
+        <div padding>
+            <h3>${{item.Price}}</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
+            <button block secondary (click)="addToCart()"><icon add></icon> Add to Cart</button>
+        </div>
+                <ion-card>
+        <ion-card-content>
+            <h3 class="card-title">Ingredients:</h3>
+            <p><span *ng-for="#ingredient of item.Ingredients; #i = index"><span [ng-class]="{strikethrough: !ingredient.Ordered}">{{ingredient.Name}}</span><span *ng-if="i < item.Ingredients.length - 1">,</span> </span></p>
+            <ion-item actions>
+                <button item-right (click)="showIngredientsModal(item.Ingredients)">Edit Ingredients</button>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-content>
+            <h3>Add Sides:</h3>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
