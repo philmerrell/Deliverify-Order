@@ -1,0 +1,52 @@
+<ion-navbar *navbar primary>
+    <ion-title>
+        Checkout
+    </ion-title>
+</ion-navbar>
+
+<ion-content>
+    <div padding>
+        <h1>{{'$'+cartService.getOrderTotal()}}</h1>
+    </div>
+    <div padding *ng-if="!userService.getCurrentUser()">
+        <h3>Whoa there, I don't even know who you are yet...</h3>
+        <div>
+            <!--<button primary full><icon social-facebook></icon> Facebook</button>-->
+            <!--<button danger full><icon social-google></icon> Google</button>-->
+            <!--<button secondary full><icon social-twitter></icon> Twitter</button>-->
+            <button (click)="authWithGithub()" dark full><icon social-github></icon> Github</button>
+        </div>
+    </div>
+    <div *ng-if="userService.getCurrentUser()">
+        <ion-card>
+            <ion-card-header>LOCATION:</ion-card-header>
+            <!--<ion-item>-->
+                <!--<ion-avatar item-left class="icon-avatar"><icon navigate></icon></ion-avatar>-->
+                <!--<h2>4613 Kendall St. Boise, Id</h2>-->
+            <!--</ion-item>-->
+            <ion-card-content>
+                <ion-item actions>
+                    <button (click)="openLocationModal()" clear primary item-right> <icon compass></icon> Add Location</button>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </div>
+
+    <div *ng-if="userService.getCurrentUser()">
+        <ion-card>
+            <ion-card-header>PAYMENT:</ion-card-header>
+            <ion-card-content>
+                <!--<div ion-item>-->
+                    <!--<ion-avatar item-left class="icon-avatar"><icon card></icon></ion-avatar>-->
+                    <!--<h1> •••• •••• •••• 6784</h1>-->
+                <!--</div>-->
+                <ion-item actions>
+                    <button (click)="openPaymentModal()" clear primary item-right><icon card></icon> Add Payment</button>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>
+<div *ng-if="userService.getCurrentUser()" padding>
+    <button danger block disabled><icon card></icon> Pay</button>
+</div>

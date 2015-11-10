@@ -4,20 +4,33 @@
   </ion-title>
 </ion-navbar>
 <ion-content>
-  <div *ng-if="userService.getCurrentUser()">
-    <div class="user" padding>
-      <img src="{{currentUser.github.profileImageURL}}" style="width: 50px; border-radius: 50px;">
-      <h4>{{currentUser.github.displayName}} <small style="font-size: 0.8em; color: #8c8c8c;">via {{currentUser.provider}}</small></h4>
+  <div padding *ng-if="!userService.getCurrentUser()">
+    <h3>Whoa there, I don't even know who you are yet...</h3>
+    <div>
+      <!--<button primary full><icon social-facebook></icon> Facebook</button>-->
+      <!--<button danger full><icon social-google></icon> Google</button>-->
+      <!--<button secondary full><icon social-twitter></icon> Twitter</button>-->
+      <button (click)="authWithGithub()" dark full><icon social-github></icon> Github</button>
     </div>
+  </div>
+  <div *ng-if="userService.getCurrentUser()">
     <ion-card>
+      <ion-card-header>Locations:</ion-card-header>
       <ion-card-content>
+        <ion-item actions>
+          <button clear primary item-right> <icon compass></icon> Add Location</button>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>Payments:</ion-card-header>
+      <ion-card-content>
+        <ion-item actions>
+          <button clear primary item-right> <icon card></icon> Add Payment</button>
+        </ion-item>
       </ion-card-content>
     </ion-card>
   </div>
-  <div padding *ng-if="!userService.getCurrentUser()">
-    <!--<button primary full><icon social-facebook></icon> Facebook</button>-->
-    <!--<button danger full><icon social-google></icon> Google</button>-->
-    <!--<button secondary full><icon social-twitter></icon> Twitter</button>-->
-    <button (click)="authWithGithub()" dark full><icon social-github></icon> Github</button>
-  </div>
+  <button (click)="checkout()" danger fab fab-bottom fab-right><icon card></icon></button>
+
 </ion-content>

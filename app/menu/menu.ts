@@ -1,6 +1,8 @@
 import {Page, NavController, ViewController} from 'ionic/ionic';
 import {MenuData} from '../data/menu';
 import {MenuDetail} from '../menu-detail/menuDetail';
+import {Checkout} from '../checkout/checkout';
+
 
 @Page({
   templateUrl: 'app/menu/menu.html',
@@ -17,6 +19,11 @@ export class Menu {
     this.nav.push(MenuDetail, {
       item: item
     });
+  }
+
+  checkout() {
+    //this.modal.open(Checkout);
+    this.nav.push(Checkout);
   }
 
 }
