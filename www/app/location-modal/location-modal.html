@@ -1,0 +1,35 @@
+<ion-pane>
+    <ion-toolbar>
+        <ion-nav-items primary>
+        </ion-nav-items>
+        <ion-title>
+            <icon pin></icon> Location
+        </ion-title>
+        <ion-nav-items secondary>
+            <button (click)="close()">Cancel</button>
+        </ion-nav-items>
+    </ion-toolbar>
+    <ion-content>
+        <ion-list>
+            <ion-input floating-label>
+                <ion-label>Street</ion-label>
+                <input type="text" value="111 N. 11th St.">
+            </ion-input>
+            <ion-input floating-label>
+                <ion-label>City</ion-label>
+                <input type="text" value="Boise">
+            </ion-input>
+            <ion-input floating-label>
+                <ion-label>State</ion-label>
+                <input type="text" value="Id">
+            </ion-input>
+            <ion-input floating-label>
+                <ion-label>Zip</ion-label>
+                <input type="text" value="83706">
+            </ion-input>
+        </ion-list>
+        <div padding>
+            <button block primary>Add Location</button>
+        </div>
+    </ion-content>
+</ion-pane>

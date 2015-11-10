@@ -1,0 +1,31 @@
+<ion-pane>
+    <ion-toolbar>
+        <ion-nav-items primary>
+        </ion-nav-items>
+        <ion-title>
+            <icon card></icon> Payment
+        </ion-title>
+        <ion-nav-items secondary>
+            <button (click)="close()">Cancel</button>
+        </ion-nav-items>
+    </ion-toolbar>
+    <ion-content>
+        <ion-list>
+            <ion-input floating-label>
+                <ion-label>Credit Card</ion-label>
+                <input type="number" value="4242424242424242">
+            </ion-input>
+            <ion-input floating-label>
+                <ion-label>MM/YY</ion-label>
+                <input type="text" value="03/19">
+            </ion-input>
+            <ion-input floating-label>
+                <ion-label>CVC</ion-label>
+                <input type="text" value="345">
+            </ion-input>
+        </ion-list>
+        <div padding>
+            <button block primary>Add Payment</button>
+        </div>
+    </ion-content>
+</ion-pane>

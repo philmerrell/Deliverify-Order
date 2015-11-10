@@ -1,7 +1,6 @@
 import {Page, NavController, ViewController} from 'ionic/ionic';
-import {ChatDetail} from '../chat/chat';
 import {CartService} from '../data/cart';
-import * as Rx from 'rx';
+import {Checkout} from '../checkout/checkout';
 
 @Page({
   templateUrl: 'app/cart/cart.html'
@@ -24,5 +23,12 @@ export class Cart {
   remove(item) {
     this.cartService.removeItemFromCart(item);
   }
+
+  checkout() {
+    //this.modal.open(Checkout);
+    this.nav.push(Checkout);
+  }
+
+
 
 }

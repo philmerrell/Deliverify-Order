@@ -6,7 +6,7 @@ import {UserService} from '../services/UserService';
 
 @Injectable()
 export class AuthService {
-    firebaseUrl: string;
+    firebaseUrl: string = 'https://philmerrell.firebaseio.com/';
     ref: Firebase;
     currentUser: any;
     userService: UserService;
@@ -15,11 +15,15 @@ export class AuthService {
     constructor(userService: UserService) {
         this.userService = userService;
         this.currentUser = userService.getCurrentUser();
-        this.firebaseUrl = 'https://philmerrell.firebaseio.com/';
+        //this.firebaseUrl = 'https://philmerrell.firebaseio.com/';
         this.ref = new Firebase(this.firebaseUrl);
         this.ref.onAuth((user) => {
+            console.log(user);
             if(user) {
-                console.log('User: ', user);
+                this.ref.child("users").child(user.uid).set({
+                    provider: user.provider,
+                    name: this.getName(user)
+                });
                 this.userService.setCurrentUser(user);
             }
         });
@@ -36,4 +40,12 @@ export class AuthService {
         });
 
     }
+
+    getName(user) {
+        switch(user.provider) {
+            case 'github':
+                return user.github.displayName;
+        }
+    }
+
 }

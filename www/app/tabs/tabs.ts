@@ -1,8 +1,8 @@
-import {Page, Modal} from 'ionic/ionic';
+import {Page, Modal, NavController} from 'ionic/ionic';
 import {Menu} from '../menu/menu';
 import {Cart} from '../cart/cart';
 import {Account} from '../account/account';
-import {CheckoutModal} from '../checkout-modal/checkout-modal';
+import {Checkout} from '../checkout/checkout';
 import {CartService} from '../data/cart';
 
 @Page({
@@ -10,12 +10,13 @@ import {CartService} from '../data/cart';
 })
 
 export class TabsPage {
-  constructor(cartService: CartService, modal: Modal) {
+  constructor(cartService: CartService, modal: Modal, nav: NavController) {
     this.MenuRoot = Menu;
     this.CartRoot = Cart;
     this.AccountRoot = Account;
     this.cartService = cartService;
     this.modal = modal;
+    this.nav = nav;
     this.toast = false;
     this.cartService.cartEmitter.subscribe((value) => {
       this.toast = value;
@@ -36,11 +37,5 @@ export class TabsPage {
       return '$'+total;
     }
   }
-
-  checkout() {
-    this.modal.open(CheckoutModal);
-  }
-
-
 
 }
