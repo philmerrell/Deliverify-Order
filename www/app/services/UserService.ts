@@ -16,10 +16,25 @@ export class UserService {
 
     setCurrentUser(newUser): void {
         this.currentUser = newUser;
+        this.currentUser.Locations = [];
+        this.currentUser.Payments = [];
+
         this.userEmitter.next(newUser);
     }
 
     getCurrentUser() {
         return this.currentUser;
+    }
+
+    addLocationToUser(location) {
+
+        this.currentUser.Locations.push(location);
+        this.userEmitter.next(this.currentUser);
+    }
+
+    addPaymentMethodToUser(paymentMethod) {
+
+        this.currentUser.Payments.push(paymentMethod);
+        this.userEmitter.next(this.currentUser);
     }
 }

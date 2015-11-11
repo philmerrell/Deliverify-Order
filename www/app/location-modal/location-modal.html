@@ -13,23 +13,23 @@
         <ion-list>
             <ion-input floating-label>
                 <ion-label>Street</ion-label>
-                <input type="text" value="111 N. 11th St.">
+                <input [(ng-model)]="address.Street1" type="text" value="111 N. 11th St.">
             </ion-input>
             <ion-input floating-label>
                 <ion-label>City</ion-label>
-                <input type="text" value="Boise">
+                <input [(ng-model)]="address.City" type="text" value="Boise">
             </ion-input>
             <ion-input floating-label>
                 <ion-label>State</ion-label>
-                <input type="text" value="Id">
+                <input [(ng-model)]="address.State" type="text" value="Id">
             </ion-input>
             <ion-input floating-label>
                 <ion-label>Zip</ion-label>
-                <input type="text" value="83706">
+                <input [(ng-model)]="address.Zip" type="text" value="83706">
             </ion-input>
         </ion-list>
         <div padding>
-            <button block primary>Add Location</button>
+            <button (click)="addLocation(address)" block primary>Add Location</button>
         </div>
     </ion-content>
 </ion-pane>
