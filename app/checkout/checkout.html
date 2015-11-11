@@ -25,6 +25,11 @@
                 <!--<h2>4613 Kendall St. Boise, Id</h2>-->
             <!--</ion-item>-->
             <ion-card-content>
+                <div *ng-if="currentUser.Locations.length">
+                    <ion-item *ng-for="#location of currentUser.Locations">
+                        <icon checkmark></icon> {{location.Street1 + ' ' + location.City + ' ' + location.State + ', ' + location.Zip}}
+                    </ion-item>
+                </div>
                 <ion-item actions>
                     <button (click)="openLocationModal()" clear primary item-right> <icon compass></icon> Add Location</button>
                 </ion-item>
@@ -36,10 +41,11 @@
         <ion-card>
             <ion-card-header>PAYMENT:</ion-card-header>
             <ion-card-content>
-                <!--<div ion-item>-->
-                    <!--<ion-avatar item-left class="icon-avatar"><icon card></icon></ion-avatar>-->
-                    <!--<h1> •••• •••• •••• 6784</h1>-->
-                <!--</div>-->
+                <div *ng-if="currentUser.Payments.length">
+                    <ion-item *ng-for="#payment of currentUser.Payments">
+                        <icon checkmark></icon> •••• •••• •••• 6784
+                    </ion-item>
+                </div>
                 <ion-item actions>
                     <button (click)="openPaymentModal()" clear primary item-right><icon card></icon> Add Payment</button>
                 </ion-item>
@@ -48,5 +54,5 @@
     </div>
 </ion-content>
 <div *ng-if="userService.getCurrentUser()" padding>
-    <button danger block disabled><icon card></icon> Pay</button>
+    <button (click)="pay($event)" danger block><icon card></icon> Pay</button>
 </div>
