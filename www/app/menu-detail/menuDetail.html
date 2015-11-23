@@ -5,13 +5,13 @@
 </ion-navbar>
 
 <ion-content>
-        <img [src]="item.Image" width="100%">
-        <div padding>
-            <h3>${{item.Price}}</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
-            <button block secondary (click)="addToCart()"><icon add></icon> Add to Cart</button>
-        </div>
-                <ion-card>
+    <img [src]="item.Image" width="100%">
+    <div padding>
+        <h3>${{item.Price}}</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
+        <button block secondary (click)="addToCart()"><icon add></icon> Add to Cart</button>
+    </div>
+   <ion-card *ng-if="item.Ingredients.length > 0">
         <ion-card-content>
             <h3 class="card-title">Ingredients:</h3>
             <p><span *ng-for="#ingredient of item.Ingredients; #i = index"><span [ng-class]="{strikethrough: !ingredient.Ordered}">{{ingredient.Name}}</span><span *ng-if="i < item.Ingredients.length - 1">,</span> </span></p>
@@ -20,9 +20,21 @@
             </ion-item>
         </ion-card-content>
     </ion-card>
-    <ion-card>
+    <!--<ion-card>
         <ion-card-content>
             <h3>Add Sides:</h3>
+            <select (change)="addItem($event)">
+                <option *ng-for="#d of ['Coke', 'Dr. Pepper', 'Water', 'Tea']" [value]="d"></option>
+            </select>
+            <select style="width: 100%; height: 30px;">
+                <option>Select Drink</option>
+            </select>
+            <select style="width: 100%; height: 30px;">
+                <option>Select Chips</option>
+            </select>
+            <select style="width: 100%; height: 30px;">
+                <option>Select Dessert</option>
+            </select>
         </ion-card-content>
-    </ion-card>
+    </ion-card>-->
 </ion-content>

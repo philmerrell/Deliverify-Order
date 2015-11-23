@@ -8,13 +8,20 @@ import {UserService} from "../services/UserService";
 export class PaymentModal {
     userService: UserService;
     paymentMethod: any;
+    card: Card;
     constructor(userService: UserService) {
-        this.paymentMethod = {};
+        this.paymentMethod = { number: '424242424242'};
         this.userService = userService;
+        this.card = new Card({
+            form: 'form',
+            container: '.card-wrapper'
+        });
     }
 
     addPaymentMethodToUser(paymentMethod) {
         this.userService.addPaymentMethodToUser(paymentMethod);
+        this.paymentMethod = {};
+        this.card = {};
         this.close();
     }
 

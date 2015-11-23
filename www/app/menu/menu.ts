@@ -12,13 +12,24 @@ export class Menu {
     this.menu = menu;
     this.nav = nav;
     this.view = view;
-    this.menuItems = menu.all();
+    this.items = menu.all();
+    console.log(this.items);
+    // this.menuGroups = _.groupBy(menu.all(), 'Group');
+
+
   }
 
   viewItem(item) {
     this.nav.push(MenuDetail, {
       item: item
     });
+  }
+  
+  getItems() {
+    
+    var a = Object.keys(this.menuGroups).map(key => this.menuGroups[key]);
+  
+    return a;
   }
 
   checkout() {
