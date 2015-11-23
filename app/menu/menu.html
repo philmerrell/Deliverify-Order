@@ -4,10 +4,9 @@
   </ion-title>
 </ion-navbar>
 <ion-content>
-  <ion-list>
-    <div *ng-for="#item of menuItems; #i = index">
-      <ion-header>{{item.Group}}</ion-header>
-      <ion-item (click)="viewItem(item)">
+  <ion-list *ng-for="#group of items; #i = index;">
+      <ion-header>{{group.Group}}</ion-header>
+      <ion-item *ng-for="#item of group.Items" (click)="viewItem(item)">
         <ion-avatar item-left>
           <img [src]="item.Image" alt="">
         </ion-avatar>
@@ -15,8 +14,8 @@
         <p>${{item.Price}}</p>
         <p><span *ng-for="#ingredient of item.Ingredients; #i = index"><span>{{ingredient.Name}}</span><span *ng-if="i < item.Ingredients.length - 1">,</span> </span></p>
       </ion-item>
-    </div>
   </ion-list>
-  <button (click)="checkout()" danger fab fab-bottom fab-right><icon card></icon></button>
 </ion-content>
+<button (click)="checkout()" danger fab fab-bottom fab-right><icon card></icon></button>
+
 

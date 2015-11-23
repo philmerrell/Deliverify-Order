@@ -10,19 +10,26 @@
         </ion-nav-items>
     </ion-toolbar>
     <ion-content>
+        <div class="card-wrapper"></div>
         <ion-list>
-            <ion-input floating-label>
-                <ion-label>Credit Card</ion-label>
-                <input type="number" value="4242424242424242">
-            </ion-input>
-            <ion-input floating-label>
-                <ion-label>MM/YY</ion-label>
-                <input type="text" value="03/19">
-            </ion-input>
-            <ion-input floating-label>
-                <ion-label>CVC</ion-label>
-                <input type="text" value="345">
-            </ion-input>
+            <form>
+                <ion-input floating-label>
+                    <ion-label>Full Name</ion-label>
+                    <input type="text" name="name">
+                </ion-input>
+                <ion-input floating-label>
+                    <ion-label>Credit Card</ion-label>
+                    <input type="text" name="number">
+                </ion-input>
+                <ion-input floating-label>
+                    <ion-label>MM/YY</ion-label>
+                    <input type="text" name="expiry">
+                </ion-input>
+                <ion-input floating-label>
+                    <ion-label>CVC</ion-label>
+                    <input type="text" name="cvc">
+                </ion-input>
+            </form>
         </ion-list>
         <div padding>
             <button (click)="addPaymentMethodToUser(paymentMethod)" block primary>Add Payment</button>
