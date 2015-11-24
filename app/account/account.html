@@ -17,20 +17,30 @@
     <ion-card>
       <ion-card-header>Locations:</ion-card-header>
       <ion-card-content>
+        <div *ng-if="currentUser.Locations.length">
+            <ion-item *ng-for="#location of currentUser.Locations">
+                <icon checkmark></icon> {{location.Street1 + ' ' + location.City + ' ' + location.State + ', ' + location.Zip}}
+            </ion-item>
+        </div> 
         <ion-item actions>
-          <button clear primary item-right> <icon compass></icon> Add Location</button>
+          <button (click)="openLocationModal()" clear primary item-right> <icon compass></icon> Add Location</button>
         </ion-item>
       </ion-card-content>
     </ion-card>
     <ion-card>
       <ion-card-header>Payments:</ion-card-header>
       <ion-card-content>
+        <div *ng-if="currentUser.Payments.length">
+            <ion-item *ng-for="#payment of currentUser.Payments">
+                <icon checkmark></icon> •••• •••• •••• 6784
+            </ion-item>
+        </div>
         <ion-item actions>
-          <button clear primary item-right> <icon card></icon> Add Payment</button>
+          <button (click)="openPaymentModal()" clear primary item-right> <icon card></icon> Add Payment</button>
         </ion-item>
       </ion-card-content>
     </ion-card>
   </div>
-  <button (click)="checkout()" danger fab fab-bottom fab-right><icon card></icon></button>
+  <button *ng-if="cartService.getOrderTotal() > 0" (click)="checkout()" danger fab fab-bottom fab-right><icon card></icon></button>
 
 </ion-content>
