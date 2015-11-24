@@ -3,7 +3,7 @@
     Cart - {{'$'+cartService.getOrderTotal()}}
   </ion-title>
   <ion-nav-items secondary>
-    <button *ng-if="cartService.getOrderTotal() > 0">Checkout</button>
+    <button *ng-if="cartService.getOrderTotal() > 0" (click)="checkout()">Checkout</button>
   </ion-nav-items>
 </ion-navbar>
 <ion-content>
@@ -20,6 +20,6 @@
       <button (click)="remove(item)" clear danger item-right><icon trash></icon></button>
     </ion-item>
   </ion-list>
-  <button (click)="checkout()" danger fab fab-bottom fab-right><icon card></icon></button>
+  <button *ng-if="cartService.getOrderTotal() > 0" (click)="checkout()" danger fab fab-bottom fab-right><icon card></icon></button>
 
 </ion-content>

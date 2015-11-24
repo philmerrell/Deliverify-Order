@@ -2,14 +2,16 @@ import {Page, NavController, ViewController} from 'ionic/ionic';
 import {MenuData} from '../data/menu';
 import {MenuDetail} from '../menu-detail/menuDetail';
 import {Checkout} from '../checkout/checkout';
+import {CartService} from '../data/cart';
 
 
 @Page({
   templateUrl: 'app/menu/menu.html',
 })
 export class Menu {
-  constructor(menu: MenuData, nav: NavController, view: ViewController) {
+  constructor(cartService: CartService, menu: MenuData, nav: NavController, view: ViewController) {
     this.menu = menu;
+    this.cartService = cartService;
     this.nav = nav;
     this.view = view;
     this.items = menu.all();

@@ -10,7 +10,10 @@ import {FirebaseEventPipe} from './pipes/firebasepipe';
 @App({
   template: '<ion-nav [root]="root"></ion-nav>',
   providers: [MenuData, CartService, UserService, AuthService],
-  pipes: [FirebaseEventPipe]
+  pipes: [FirebaseEventPipe],
+  config: {
+    mode: 'md'
+  }
 })
 
 export class TabsPage {
