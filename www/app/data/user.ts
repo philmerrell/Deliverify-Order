@@ -5,7 +5,9 @@
 export class UserService {
 
     constructor() {
-        this.currentUser = false;
+        this.currentUser = {
+            Locations: []
+        };
     }
     getCurrentUser() {
         return this.currentUser;

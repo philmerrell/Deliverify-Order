@@ -25,6 +25,16 @@ export class CartService {
     getCart() {
         return this.cart;
     }
+    
+    // Used in stripe checkout description field
+    getOrderDescription() {
+        var itemNames = '';
+        _.forEach(this.cart, (item, index) => {
+           itemNames += item.Name + ', '
+        });
+        
+        return itemNames;
+    }
 
     getOrderTotal() {
         var total = 0;
@@ -34,6 +44,14 @@ export class CartService {
 
         return total.toFixed(2);
     }
+    
+    getTotalForStripe() {
+        var total = 0;
+        _.forEach(this.cart, item => {
+            total += item.Price;
+        });
+        return total * 100;
+    }
 
     removeItemFromCart(item) {
         _.pull(this.cart, item);
@@ -41,6 +59,11 @@ export class CartService {
 
     getShowToast() {
         return this.toast;
+    }
+    
+    resetCart() {
+        this.cart = [];
+        this.cartEmitter.next(this.cart);
     }
 
     setShowToast(bool) {

@@ -10,7 +10,9 @@ export class UserService {
     currentUser: any;
 
     constructor() {
-        this.currentUser = false;
+        this.currentUser = {
+            Locations: []
+        };
         this.userEmitter = this._emitter.toRx();
     }
 

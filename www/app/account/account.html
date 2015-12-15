@@ -27,7 +27,7 @@
         </ion-item>
       </ion-card-content>
     </ion-card>
-    <ion-card>
+    <!--<ion-card>
       <ion-card-header>Payments:</ion-card-header>
       <ion-card-content>
         <div *ng-if="currentUser.Payments.length">
@@ -39,7 +39,7 @@
           <button (click)="openPaymentModal()" clear primary item-right> <icon card></icon> Add Payment</button>
         </ion-item>
       </ion-card-content>
-    </ion-card>
+    </ion-card>-->
   </div>
   <button *ng-if="cartService.getOrderTotal() > 0" (click)="checkout()" danger fab fab-bottom fab-right><icon card></icon></button>
 
