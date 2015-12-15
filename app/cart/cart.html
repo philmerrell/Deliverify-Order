@@ -10,9 +10,12 @@
   <ion-card *ng-if="!cart.length">
     <ion-card-content>
       <h1>Your <icon cart></icon> is empty</h1>
+      <p>&nbsp</p>
+      <h2 style="font-size: 2em;">¯\_(ツ)_/¯</h2>
     </ion-card-content>
   </ion-card>
-  <ion-list>
+  <ion-list *ng-if="cart.length">
+    <ion-header>Current Order</ion-header>
     <ion-item *ng-for="#item of cart">
       <h2>{{item.Name}}</h2>
       <h3>${{item.Price}}</h3>

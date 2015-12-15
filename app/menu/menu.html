@@ -7,9 +7,9 @@
   <ion-list *ng-for="#group of items; #i = index;">
       <ion-header>{{group.Group}}</ion-header>
       <ion-item *ng-for="#item of group.Items" (click)="viewItem(item)">
-        <ion-avatar item-left>
+        <ion-thumbnail item-left>
           <img [src]="item.Image" alt="">
-        </ion-avatar>
+        </ion-thumbnail>
         <h2>{{item.Name}}</h2>
         <p>${{item.Price}}</p>
         <p><span *ng-for="#ingredient of item.Ingredients; #i = index"><span>{{ingredient.Name}}</span><span *ng-if="i < item.Ingredients.length - 1">,</span> </span></p>

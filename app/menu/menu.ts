@@ -1,4 +1,4 @@
-import {Page, NavController, ViewController} from 'ionic/ionic';
+import {Page, NavController, ViewController, Tabs} from 'ionic/ionic';
 import {MenuData} from '../data/menu';
 import {MenuDetail} from '../menu-detail/menuDetail';
 import {Checkout} from '../checkout/checkout';
@@ -9,8 +9,9 @@ import {CartService} from '../data/cart';
   templateUrl: 'app/menu/menu.html',
 })
 export class Menu {
-  constructor(cartService: CartService, menu: MenuData, nav: NavController, view: ViewController) {
+  constructor(cartService: CartService, menu: MenuData, nav: NavController, view: ViewController, tabs: Tabs) {
     this.menu = menu;
+    this.tabs = tabs;
     this.cartService = cartService;
     this.nav = nav;
     this.view = view;
@@ -35,8 +36,10 @@ export class Menu {
   }
 
   checkout() {
-    //this.modal.open(Checkout);
+    // this.modal.open(Checkout);
+    // this.tabs.select(2);
     this.nav.push(Checkout);
+
   }
 
 }

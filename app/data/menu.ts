@@ -103,7 +103,7 @@ export class MenuData {
                         {
                             Name: "The Veggie",
                             Price: 5.25,
-                            Group: "Sandwiches"
+                            Group: "Sandwiches",
                             Customizable: true,
                             Ingredients: [
                                 { Name: "Bread", Type: "Select", Required: true, Options: ["Wheat", "Sour Dough", "7 Grain", "Rye", "Bagette"]},

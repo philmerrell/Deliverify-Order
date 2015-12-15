@@ -8,24 +8,24 @@
     <div padding>
         <h1>{{'$'+cartService.getOrderTotal()}}</h1>
     </div>
-    <div padding *ng-if="!userService.getCurrentUser()">
+    <!--<div padding *ng-if="!userService.getCurrentUser()">
         <h3>Whoa there, I don't even know who you are yet...</h3>
         <div>
-            <!--<button primary full><icon social-facebook></icon> Facebook</button>-->
-            <!--<button danger full><icon social-google></icon> Google</button>-->
-            <!--<button secondary full><icon social-twitter></icon> Twitter</button>-->
+            <button primary full><icon social-facebook></icon> Facebook</button>
+            <button danger full><icon social-google></icon> Google</button>
+            <button secondary full><icon social-twitter></icon> Twitter</button>
             <button (click)="authWithGithub()" dark full><icon social-github></icon> Github</button>
         </div>
-    </div>
-    <div *ng-if="userService.getCurrentUser()">
+    </div>-->
+    <div>
         <ion-card>
-            <ion-card-header>LOCATION:</ion-card-header>
+            <ion-card-header>Delivery Address:</ion-card-header>
             <!--<ion-item>-->
                 <!--<ion-avatar item-left class="icon-avatar"><icon navigate></icon></ion-avatar>-->
                 <!--<h2>4613 Kendall St. Boise, Id</h2>-->
             <!--</ion-item>-->
             <ion-card-content>
-                <div *ng-if="currentUser.Locations.length">
+                <div>
                     <ion-item *ng-for="#location of currentUser.Locations">
                         <icon checkmark></icon> {{location.Street1 + ' ' + location.City + ' ' + location.State + ', ' + location.Zip}}
                     </ion-item>
@@ -37,7 +37,7 @@
         </ion-card>
     </div>
 
-    <div *ng-if="userService.getCurrentUser()">
+    <!--<div *ng-if="userService.getCurrentUser()">
         <ion-card>
             <ion-card-header>PAYMENT:</ion-card-header>
             <ion-card-content>
@@ -52,7 +52,7 @@
             </ion-card-content>
         </ion-card>
     </div>
-</ion-content>
-<div *ng-if="userService.getCurrentUser()" padding>
-    <button (click)="pay($event)" danger block><icon card></icon> Pay</button>
+</ion-content>-->
+<div padding>
+    <button [disabled]="!currentUser.Locations.length" (click)="pay($event)" danger block><icon card></icon> Pay</button>
 </div>

@@ -1,4 +1,5 @@
 import {Page, Modal, NavController} from 'ionic/ionic';
+import {Home} from '../home/home';
 import {Menu} from '../menu/menu';
 import {Cart} from '../cart/cart';
 import {Account} from '../account/account';
@@ -13,6 +14,7 @@ export class TabsPage {
   constructor(cartService: CartService, modal: Modal, nav: NavController) {
     this.MenuRoot = Menu;
     this.CartRoot = Cart;
+    this.HomeRoot = Home;
     this.AccountRoot = Account;
     this.cartService = cartService;
     this.modal = modal;

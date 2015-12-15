@@ -8,14 +8,15 @@
   <link href="build/css/app.css" rel="stylesheet">
 </head>
 
-<body style="width: 350px; height: 550px; background: #000;">
-  <ion-app></ion-app>
+<body style="border: 4px solid #333; background: #999; width: 370px; height: 580px;">
+  <div>
+    <ion-app></ion-app>
+  </div>
   <script src="cordova.js"></script>
   <script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <script src="https://checkout.stripe.com/checkout.js"></script>
   <script src="build/js/app.bundle.js"></script>
-  <script src="../node_modules/card/lib/js/card.js"></script>
 <script>
   (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
     module.exports = require('./lib/extend');
