@@ -5,7 +5,7 @@
 </ion-navbar>
 <ion-content>
   <ion-list *ng-for="#group of items; #i = index;">
-      <ion-header>{{group.Group}}</ion-header>
+      <ion-header class="header"><h1>{{group.Group}}</h1></ion-header>
       <ion-item *ng-for="#item of group.Items" (click)="viewItem(item)">
         <ion-thumbnail item-left>
           <img [src]="item.Image" alt="">
@@ -17,5 +17,3 @@
   </ion-list>
 </ion-content>
 <button *ng-if="cartService.getOrderTotal() > 0" (click)="checkout()" danger fab fab-bottom fab-right><icon card></icon></button>
-
-
