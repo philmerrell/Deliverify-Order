@@ -14,9 +14,15 @@ $content-background-color: #f8f8f8;
 // Ionic Sass
 // ---------------------------------
 @import "ionic";
+@import url(https://fonts.googleapis.com/css?family=Chewy);
 
 // App Sass
 // ---------------------------------
+
+.header {
+  font-family: 'Chewy', cursive;
+  font-size: 35px;
+}
 
 .toast {
   position: fixed;
