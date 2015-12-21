@@ -13,7 +13,8 @@
         <h2>{{item.Name}}</h2>
         <p>${{item.Price}}</p>
         <p><span *ng-for="#ingredient of item.Ingredients; #i = index"><span>{{ingredient.Name}}</span><span *ng-if="i < item.Ingredients.length - 1">,</span> </span></p>
+        <button (click)="addToCart(item, $event)" clear item-right><icon add-circle></button>
       </ion-item>
   </ion-list>
 </ion-content>
-<button *ng-if="cartService.getOrderTotal() > 0" (click)="checkout()" danger fab fab-bottom fab-right><icon card></icon></button>
+<button *ng-if="cartService.getOrderTotal() > 0" (click)="checkout()" secondary fab fab-bottom fab-right><icon card></icon></button>

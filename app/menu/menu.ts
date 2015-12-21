@@ -16,7 +16,6 @@ export class Menu {
     this.nav = nav;
     this.view = view;
     this.items = menu.all();
-    console.log(this.items);
     // this.menuGroups = _.groupBy(menu.all(), 'Group');
 
 
@@ -33,6 +32,13 @@ export class Menu {
     var a = Object.keys(this.menuGroups).map(key => this.menuGroups[key]);
   
     return a;
+  }
+  
+  addToCart(item, event) {
+    console.log(event);
+      event.stopPropagation();
+      this.cartService.addToCart(item);
+      this.cartService.setShowToast(true);
   }
 
   checkout() {

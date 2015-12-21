@@ -24,4 +24,4 @@
     </ion-item>
   </ion-list>
 </ion-content>
-<button *ng-if="cartService.getOrderTotal() > 0" (click)="checkout()" danger fab fab-bottom fab-right><icon card></icon></button>
+<button *ng-if="cartService.getOrderTotal() > 0" (click)="checkout()" secondary fab fab-bottom fab-right><icon card></icon></button>
