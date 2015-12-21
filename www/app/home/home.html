@@ -1,0 +1,49 @@
+<ion-navbar *navbar primary>
+  <ion-title>
+    Appwich
+  </ion-title>
+</ion-navbar>
+<ion-content>
+	<div style="position: relative;">
+		<div style="position: absolute; top: 0; width: 100%; color: #fff; text-shadow: 2px 2px 0px #000; padding: 10px;">
+			<h2 class="header">The appwich 5000</h2>
+			<h3 style="color: #f8f8f8">The most powerful sandwich delivery system ever.</h3>
+		</div>
+		<img width="100%" src="img/freshblur.jpg">
+		<div style="position: absolute; bottom: 0; padding: 10px 10px; width: 100%; text-align: right;">
+			<button *ng-if="!available" (click)="getLocation()" primary><icon pin></icon>Check for Availability</button>
+			<button *ng-if="available" secondary item-right><icon checkmark></icon> We are in your area</button>
+		</div>
+	</div>
+	<ion-card>
+		<ion-card-content>
+			<h1><icon phone-portrait> <small>Simple Ordering</small></h1>
+			<p>So simple a baby could accidently do it. <icon checkmark> </p>
+			<hr>
+			<h1><icon restaurant> <small>Delicious Food</small></h1>
+			<p>Prepared by people that don't hate their jobs. <icon checkmark> </p>
+			<hr>
+			<h1><icon car> <small>Fast Delivery</small></h1>
+			<p>We're timed for analytics and stuff. <icon checkmark></p>
+			<hr>
+			<h1><icon locate> <small>Real-time Tracking</small></h1>
+			<p>Behold the power of our sandwich tracking technology. <icon checkmark></p>
+			<button (click)="viewMenu()" block secondary> <icon restaurant></icon> View menu</button>
+		</ion-card-content>
+	</ion-card>
+	<ion-card>
+		<ion-card-content>
+			<h4>SPECIALS:</h4>
+			<b>The Veggie Sandwich</b> + <b>Coke</b> = $6.84
+	
+			<ion-item actions>
+				<button (click)="orderSpecial()" clear primary item-right><icon cart></icon>Add to Cart</button>
+          	
+        	</ion-item>
+		</ion-card-content>
+
+	</ion-card>
+	<user-progress></user-progress>
+</ion-content>
+<button *ng-if="cartService.getOrderTotal() > 0" (click)="checkout()" secondary fab fab-bottom fab-right><icon card></icon></button>
+
