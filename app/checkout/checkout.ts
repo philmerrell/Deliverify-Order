@@ -54,6 +54,9 @@ export class Checkout {
                // Use the token to create the charge with a server-side script.
                // You can access the token ID with `token.id`
                console.log('token: ', token);
+
+               this.completeOrder(token);
+
                this.resetCart();
                alert("End of new user checkout flow");
                
@@ -69,6 +72,20 @@ export class Checkout {
            amount: this.cartService.getTotalForStripe()
         });
         
+    }
+
+    completeOrder(token) {
+        var order = {
+            user: token,
+            cart: this.cartService.getCart(),
+            timeSubmitted: Firebase.ServerValue.TIMESTAMP,
+            total: this.cartService.getOrderTotal(),
+            deliveryAddress: this.userService.getLocation(),
+            orderStatus: 'Order submitted',
+            progress: 'Ordered'
+        };
+        var ref = new Firebase("https://philmerrell.firebaseio.com/orders/");
+        ref.push(order);
     }
     
     resetCart() {

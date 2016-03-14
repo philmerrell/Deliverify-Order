@@ -38,7 +38,7 @@ export class Menu {
     console.log(event);
       event.stopPropagation();
       this.cartService.addToCart(item);
-      this.cartService.setShowToast(true);
+      this.cartService.setShowToast(true, 'Item added to cart');
   }
 
   checkout() {

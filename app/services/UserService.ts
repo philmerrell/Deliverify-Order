@@ -24,6 +24,12 @@ export class UserService {
         this.userEmitter.next(newUser);
     }
 
+    getLocation() {
+        var location = this.currentUser.Locations[0];
+        return location.Street1 +' '+ location.City +' '+ location.State +' '+ location.Zip;
+
+    }
+
     getCurrentUser() {
         return this.currentUser;
     }

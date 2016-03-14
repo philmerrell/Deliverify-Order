@@ -23,7 +23,7 @@ export class MenuDetail {
 
     addToCart() {
         this.cart.addToCart(this.order);
-        this.cart.setShowToast(true);
+        this.cart.setShowToast(true, "Item added to order");
         this.nav.pop();
     }
 

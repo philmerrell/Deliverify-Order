@@ -8,13 +8,13 @@ import {UserService} from "../services/UserService";
 
 export class LocationModal {
     constructor(userService: UserService) {
-        //this.address = {
-        //    Street1: '111 N. 11th St.',
-        //    City: 'Boise',
-        //    State: 'ID',
-        //    Zip: '83706'
-        //};
-        this.address = {};
+        this.address = {
+            Street1: '111 N. 11th St.',
+            City: 'Boise',
+            State: 'ID',
+            Zip: '83706'
+        };
+        //this.address = {};
 
         this.userService = userService;
     }
