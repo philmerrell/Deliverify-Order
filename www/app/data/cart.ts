@@ -12,13 +12,14 @@ export class CartService {
         this.cart = [];
         this.total = 0;
         this.order = {};
-        this.toast = false;
+        this.toast = {shown: false, message: ''};
         this.cartEmitter = this._emitter.toRx();
         this.toastEmitter = this._emitter2.toRx();
     }
 
     addToCart(items) {
         this.cart = this.cart.concat(items);
+        this.setShowToast(true, "Item added to cart");
         this.cartEmitter.next(this.cart);
     }
 
@@ -55,6 +56,7 @@ export class CartService {
 
     removeItemFromCart(item) {
         _.pull(this.cart, item);
+        this.setShowToast(true, "Item removed");
     }
 
     getShowToast() {
@@ -66,9 +68,10 @@ export class CartService {
         this.cartEmitter.next(this.cart);
     }
 
-    setShowToast(bool) {
+    setShowToast(show, message) {
         setTimeout(() => {
-           this.toastEmitter.next(!bool);
+           this.toast = {shown: show, message: message};
+           this.toastEmitter.next(this.toast);
         }, 2000);
     }
 

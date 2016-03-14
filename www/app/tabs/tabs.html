@@ -4,6 +4,6 @@
   <ion-tab tab-title="{{getTotal()}}" tab-icon="cart" [root]="CartRoot"></ion-tab>
   <ion-tab tab-title="Me" tab-icon="person" [root]="AccountRoot"></ion-tab>
   <!--TODO: showToast() needs to be based on an observable-->
-  <div class="toast slide-in" *ng-if="toast">Order Added.</div>
+  <div class="toast slide-in" *ng-if="toast.shown">{{toast.message}}</div>
 </ion-tabs>
 <ion-overlay></ion-overlay>

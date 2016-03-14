@@ -19,15 +19,13 @@ export class TabsPage {
     this.cartService = cartService;
     this.modal = modal;
     this.nav = nav;
-    this.toast = false;
+    this.toast = this.cartService.getShowToast();
     this.cartService.cartEmitter.subscribe((value) => {
-      this.toast = value;
+      this.toast = this.cartService.getShowToast();
       setTimeout(() => {
-        this.toast = !value;
+        this.toast = {};
       }, 4000);
     });
-
-
   }
 
   getTotal() {
