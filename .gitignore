@@ -1,7 +1,5 @@
 /node_modules
 /platforms
 
-www/build
-
 .idea
 .vscode
